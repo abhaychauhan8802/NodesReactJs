@@ -10,7 +10,8 @@ const Note = (props) => {
         cols="25"
         rows="8"
         className="resize-none bg-transparent outline-none"
-        defaultValue={props.note.title}
+        disabled
+        value={props.note.title}
       />
       <p>{props.note.time}</p>
     </div>
