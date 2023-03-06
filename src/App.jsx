@@ -20,16 +20,26 @@ function App() {
   ]);
 
   const addNote = () => {
-    setAddNotePrompt(true);
+    if (addNotePrompt === false) {
+      setAddNotePrompt(true);
+    } else {
+      setAddNotePrompt(false);
+    }
+  };
+
+  const cancleAddingNote = () => {
+    setAddNotePrompt(false);
   };
 
   return (
     <>
       <Navbar />
       <div className="w-screen h-screen flex pt-36 pb-10">
-        <Sidebar addNote={addNote} />
+        <Sidebar addNote={addNote} addNotePrompt={addNotePrompt} />
         <NoteContainer notes={notes} />
-        {addNotePrompt === true ? <AddNote /> : null}
+        {addNotePrompt === true ? (
+          <AddNote cancleAddingNote={cancleAddingNote} />
+        ) : null}
       </div>
     </>
   );

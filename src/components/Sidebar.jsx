@@ -9,6 +9,10 @@ const Sidebar = (props) => {
           src={plus}
           alt="plus"
           className="w-20 cursor-pointer"
+          style={{
+            transform:
+              props.addNotePrompt === true ? "rotate(45deg)" : "rotate(0deg)",
+          }}
           onClick={() => props.addNote()}
         />
       </div>
